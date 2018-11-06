@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="google-site-verification" content="IpGdLvMb2xO-9G2EbrNKwS7ORR_re9etk5gntdx8LDU">
+    
+    
+    <meta name="baidu-site-verification" content="WhHoB6kjXd">
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="杂货铺博客">
+    <meta name="keyword" content="杂货铺,前端,Javascript,HTML,HTML5,CSS,SASS">
+    <link rel="icon" href="/img/favicon.ico">
+
+    <title>
+        
+        javascript设计模式1 - 杂货铺 | Julianjia&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 杂 - 九十八的杂 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.png">
+        </div>
+        <div class="name">
+            <i>Junliang Jia</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原型模式"><span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型编程范型的一些规则"><span class="toc-text">原型编程范型的一些规则</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 杂 - 九十八的杂 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        javascript设计模式1
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-11-06 22:11:32</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript,设计模式" title="JavaScript,设计模式">JavaScript,设计模式</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>原型模式是一种设计模式，也是一种编程泛型，它构成了JavaScript这门语言的根本。</p>
+<p>原型模式的实现关键，是语言本身是否提供了<code>clone</code>方法。ECMAScript提供了<code>Object.create</code>方法，可以用来克隆对象。代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例如是在写一个飞机大战的游戏</span></span><br><span class="line"><span class="keyword">var</span> Plane = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.blood = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">this</span>.attackLevel = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">this</span>.defenseLevel = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> plane =  <span class="keyword">new</span> Plane();</span><br><span class="line">plane.blood = <span class="number">500</span>;</span><br><span class="line">plane.attackLevel = <span class="number">10</span>;</span><br><span class="line">plane.defenseLevel = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> clonePlane = <span class="built_in">Object</span>.create(plane);</span><br><span class="line"><span class="built_in">console</span>.log(clonePlane.blood)  <span class="comment">// 500</span></span><br><span class="line"><span class="built_in">console</span>.log(clonePlane.attackLevel)   <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(clonePlane.defenseLevel)  <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></p>
+<p>在不支持<code>Object.create</code>方法的浏览器中，则可以使用以下代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.create = <span class="built_in">Object</span>.create || <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  fn.prototype = obj;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> fn();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="原型编程范型的一些规则"><a href="#原型编程范型的一些规则" class="headerlink" title="原型编程范型的一些规则"></a>原型编程范型的一些规则</h3><p>JavaScript本身是一门基于原型的面向对象语言，它的对象系统就是使用原型模式来搭建的。所以原型模式不仅仅是一种设计模式，也是一种编程范型。</p>
+<p>原型编程中的一个重要特性，即当对象无法响应某个请求时，会把该请求委托给它自己的原型。</p>
+<p>原型编程范型至少包括以下基本规则：</p>
+<ul>
+<li>所有数据都是对象</li>
+<li>要得到一个对象，不是用过实例化类，而是找到一个对象作为原型并克隆它</li>
+<li>对象会记住它的原型</li>
+<li>如果对象无法响应某个请求，它会把这个请求委托给自己的原型。</li>
+</ul>
+<blockquote>
+<p><code>本文内容摘自《Javascript设计模式与实际开发》，如有疑问请评论。</code></p>
+</blockquote>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/julianjia1009">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/jjljyn">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://https-blog-98store-top.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
