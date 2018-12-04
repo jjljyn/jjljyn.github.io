@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jjljyn.github.io/2018/12/04/javascript-design-4/</loc>
+    
+    <lastmod>2018-12-04T11:54:04.971Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jjljyn.github.io/2018/11/27/javascript-design-3/</loc>
     
-    <lastmod>2018-11-27T13:24:46.806Z</lastmod>
+    <lastmod>2018-12-04T10:52:24.999Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jjljyn.github.io/2018/11/06/javascript-design-1/</loc>
+    
+    <lastmod>2018-12-04T10:52:02.224Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://jjljyn.github.io/2018/11/20/javascript-design-2/</loc>
     
-    <lastmod>2018-11-20T14:22:17.216Z</lastmod>
+    <lastmod>2018-12-04T10:51:39.418Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://jjljyn.github.io/2018/11/13/this-call-apply/</loc>
     
     <lastmod>2018-11-13T12:02:53.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jjljyn.github.io/2018/11/06/javascript-design-1/</loc>
-    
-    <lastmod>2018-11-13T04:43:06.342Z</lastmod>
     
   </url>
   
