@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jjljyn.github.io/"/>
-  <updated>2018-12-04T11:54:04.971Z</updated>
+  <updated>2018-12-05T01:27:53.707Z</updated>
   <id>https://jjljyn.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CocosCreator坐标转换</title>
+    <link href="https://jjljyn.github.io/2018/12/05/cocos-creator-coordinate-transformation/"/>
+    <id>https://jjljyn.github.io/2018/12/05/cocos-creator-coordinate-transformation/</id>
+    <published>2018-12-05T01:20:51.000Z</published>
+    <updated>2018-12-05T01:27:53.707Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Cocos-Creator-坐标转换"><a href="#Cocos-Creator-坐标转换" class="headerlink" title="Cocos Creator 坐标转换"></a>Cocos Creator 坐标转换</h1><p>实现场景中某个子节点从A点移动到B点的动画</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> node = cc.find(<span class="string">'Canvas/node'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取世界坐标中心的坐标</span></span><br><span class="line"><span class="keyword">var</span> world_center = cc.find(<span class="string">'Canvas/bg'</span>).convertToWorldSpaceAR(cc.v2(<span class="number">0</span>,<span class="number">-50</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将世界中心转为相对父节点的坐标</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">from</span> = seat.convertToNodeSpaceAR(world_center) ;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前 node 相对父节点的坐标</span></span><br><span class="line"><span class="keyword">var</span> to = node.getPosition();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移动</span></span><br><span class="line">node.setPosition(<span class="keyword">from</span>);  <span class="comment">// 从场景中心</span></span><br><span class="line"><span class="keyword">var</span> action = cc.moveTo(<span class="number">0.5</span>, to);  <span class="comment">// 移动到node原来的位置</span></span><br><span class="line">node.runAction(action);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Cocos-Creator-坐标转换&quot;&gt;&lt;a href=&quot;#Cocos-Creator-坐标转换&quot; class=&quot;headerlink&quot; title=&quot;Cocos Creator 坐标转换&quot;&gt;&lt;/a&gt;Cocos Creator 坐标转换&lt;/h1&gt;&lt;p&gt;实现场景中某
+      
+    
+    </summary>
+    
+    
+      <category term="cocos" scheme="https://jjljyn.github.io/tags/cocos/"/>
+    
+      <category term="creator" scheme="https://jjljyn.github.io/tags/creator/"/>
+    
+  </entry>
   
   <entry>
     <title>Javascript设计模式4 -- 代理模式</title>
@@ -36,9 +61,9 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
-    
       <category term="设计模式" scheme="https://jjljyn.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
     
       <category term="代理模式" scheme="https://jjljyn.github.io/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
     
@@ -65,9 +90,9 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
-    
       <category term="设计模式" scheme="https://jjljyn.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
     
       <category term="策略模式" scheme="https://jjljyn.github.io/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
     
@@ -94,9 +119,9 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
-    
       <category term="设计模式" scheme="https://jjljyn.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
     
       <category term="单例模式" scheme="https://jjljyn.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     
@@ -172,9 +197,9 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
-    
       <category term="设计模式" scheme="https://jjljyn.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="JavaScript" scheme="https://jjljyn.github.io/tags/JavaScript/"/>
     
       <category term="原型模式" scheme="https://jjljyn.github.io/tags/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
     
