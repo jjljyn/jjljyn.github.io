@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="google-site-verification" content="IpGdLvMb2xO-9G2EbrNKwS7ORR_re9etk5gntdx8LDU">
+    
+    
+    <meta name="baidu-site-verification" content="WhHoB6kjXd">
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="杂货铺博客">
+    <meta name="keyword" content="杂货铺,前端,Javascript,HTML,HTML5,CSS,SASS">
+    <link rel="icon" href="/img/favicon.ico">
+
+    <title>
+        
+        更换svn diff为vimdiff - 杂货铺 | Julianjia&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 杂 - 九十八的杂 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.png">
+        </div>
+        <div class="name">
+            <i>Junliang Jia</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#更换svn-diff-为-vimdiff"><span class="toc-text">更换svn diff 为 vimdiff</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 杂 - 九十八的杂 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        更换svn diff为vimdiff
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-01-06 16:13:27</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#vim" title="vim">vim</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#vimdiff" title="vimdiff">vimdiff</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#svn" title="svn">svn</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#svndiff" title="svndiff">svndiff</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h1 id="更换svn-diff-为-vimdiff"><a href="#更换svn-diff-为-vimdiff" class="headerlink" title="更换svn diff 为 vimdiff"></a>更换svn diff 为 vimdiff</h1><p>参考：<a href="https://www.jianshu.com/p/bc6976078c8c" target="_blank" rel="noopener">《使用Vim比较两个文件的内容》</a>、<a href="http://kimi.it/445.html" target="_blank" rel="noopener">《更换svn diff为vimdiff》</a></p>
+<p>终于发现，其实svn已经提供了这种切换diff程序的机制，在svn的手册里有diffwrap.sh这样一个脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment"># 配置你喜欢的diff程序路径</span></span><br><span class="line">DIFF=<span class="string">"vimdiff"</span></span><br><span class="line"><span class="comment"># SVN diff命令会传入两个文件的参数 </span></span><br><span class="line">LEFT=<span class="variable">$&#123;6&#125;</span></span><br><span class="line">RIGHT=<span class="variable">$&#123;7&#125;</span></span><br><span class="line"><span class="comment"># 拼接成diff命令所需要的命令格式</span></span><br><span class="line"><span class="variable">$DIFF</span> <span class="variable">$LEFT</span> <span class="variable">$RIGHT</span></span><br></pre></td></tr></table></figure></p>
+<p>把这个文件改名为svndiff，放在/usr/local/bin/目录里，并给执行权限<br>然后修改~/.subversion/config文件，将其中<br><figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># diff-<span class="meta-keyword">cmd</span> = diff_program (diff, gdiff, etc.)</span></span><br></pre></td></tr></table></figure></p>
+<p>修改成<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff-<span class="keyword">cmd</span><span class="bash"> = /usr/<span class="built_in">local</span>/bin/svndiff</span></span><br></pre></td></tr></table></figure></p>
+<p>命令行使用<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>svn diff 文件名</span><br></pre></td></tr></table></figure></p>
+<p>就会看到这个文件在svn的diff。</p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/julianjia1009">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/jjljyn">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://https-blog-98store-top.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
