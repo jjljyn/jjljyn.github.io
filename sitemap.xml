@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jjljyn.github.io/2019/01/27/linked-list/</loc>
+    
+    <lastmod>2019-01-27T11:45:46.661Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jjljyn.github.io/2018/12/04/javascript-design-4/</loc>
+    
+    <lastmod>2019-01-27T09:20:33.670Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jjljyn.github.io/2019/01/06/svndiff/</loc>
     
     <lastmod>2019-01-06T08:19:52.062Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>https://jjljyn.github.io/2018/12/05/cocos-creator-coordinate-transformation/</loc>
     
     <lastmod>2018-12-05T01:27:53.707Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jjljyn.github.io/2018/12/04/javascript-design-4/</loc>
-    
-    <lastmod>2018-12-04T11:54:04.971Z</lastmod>
     
   </url>
   
